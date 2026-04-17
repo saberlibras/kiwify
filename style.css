@@ -1,6 +1,6 @@
 :root {
     /* Color Palette */
-    --bg-color: #fff9f3;
+    --bg-color: #F9F7F2;
     --card-bg: #ffffff;
     --text-main: #1A1A1B;
     --text-muted: #4F4F4F;
@@ -128,23 +128,51 @@ a {
 /* Hero */
 .hero-card {
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2.5rem;
+    border: none;
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('Avatar2.png') center 25% / cover no-repeat;
+    z-index: 0;
+}
+
+.hero-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    z-index: 1;
+}
+
+.hero-card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-title {
     font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 1.45;
+    font-size: 2.2rem;
+    line-height: 1.35;
     margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 .highlight-green {
     color: var(--primary-color);
+    font-weight: 800;
+    text-shadow: 0px 0px 10px rgba(39, 174, 96, 0.5);
 }
 
 .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    color: var(--text-muted);
+    font-size: 1.15rem;
+    color: #f3f4f6;
 }
 
 .mobile-cta-box {
@@ -155,6 +183,38 @@ a {
     .hide-on-desktop {
         display: none;
     }
+}
+
+/* Benefits Layout */
+.benefits-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .benefits-layout {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .benefits-col-left {
+        flex: 1 1 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .benefits-col-right {
+        flex: 1 1 40%;
+        display: flex;
+    }
+}
+
+.benefits-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--soft-shadow);
 }
 
 /* Check Lists */
@@ -206,6 +266,14 @@ a {
     padding: 1.25rem;
     border-radius: var(--border-radius);
     text-align: center;
+}
+
+.feature-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
 }
 
 .feature-title {
@@ -412,7 +480,8 @@ a {
 }
 
 .checkout-feel {
-    border: 1px solid #d1d5db;
+    border: none;
+    box-shadow: 0 20px 40px -5px rgba(0,0,0,0.1), 0 15px 25px -5px rgba(0,0,0,0.06);
 }
 
 .product-mockup {
@@ -457,7 +526,7 @@ a {
 .final-price {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    font-size: 2.5rem;
+    font-size: 3.2rem;
     color: var(--text-main);
     line-height: 1.2;
 }
@@ -506,6 +575,30 @@ a {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 0.5rem;
+}
+
+/* Social Proof */
+.social-proof-box {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.social-proof-box .stars {
+    color: var(--star-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.social-proof-box p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
 }
 
 /* Transparent Cards */
